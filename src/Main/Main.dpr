@@ -5,11 +5,7 @@ program Main;
 {$R *.res}
 
 uses
-  System.SysUtils,
-  Jogador in 'Jogador.pas',
-  Bot in 'Bot.pas',
-  Jogadas in 'Jogadas.pas',
-  FluxoController in 'FluxoController.pas';
+  System.SysUtils;
 
 begin
   try

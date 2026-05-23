@@ -1,0 +1,11 @@
+unit Bot;
+
+interface
+  Type
+    TBot = class
+      public function Escolha: Integer;
+    end;
+
+implementation
+
+end.

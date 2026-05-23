@@ -1,0 +1,64 @@
+unit jsonProj;
+
+{$APPTYPE CONSOLE}
+
+{$R *.res}
+
+interface
+uses
+  System.JSON,
+  System.JSON.Types,
+  Rest.Json,
+  System.SysUtils;
+
+Type
+  TPessoa = class
+  private
+  FNome: String;
+  FIdade: integer;
+
+  public
+  constructor Create(Nome: string; Idade: Integer);
+  destructor Destroy; Override;
+
+  property  Nome: string read FNome write FNome;
+  property Idade: integer read FIdade write FIdade;
+end;
+
+procedure CreateJson(Nome: string; Idade: integer);
+
+implementation
+
+var
+  Obj: TJsonObject;
+  Pessoa: TPessoa;
+
+constructor TPessoa.Create(Nome: string; Idade: Integer);
+begin
+  inherited Create;
+  FNome  := Nome;
+  FIdade := Idade;
+end;
+
+destructor TPessoa.Destroy;
+begin
+  inherited Destroy;
+end;
+
+procedure CreateJson(Nome: string; Idade: integer);
+begin
+   Obj := TjsonObject.Create;
+
+   try
+     Obj.AddPair('nome: ', Pessoa.Nome);
+     Obj.AddPair('idade: ', TJSONNumber.Create(Pessoa.Idade));
+   finally
+      Pessoa.Free;
+      Obj.Free;
+   end;
+end;
+end.
+// Arr:= TJsonArray.Create;
+    //Arr.Add('item1');
+   // Arr.Add('item2');
+    //Obj.AddPair('Lista:', Arr);
