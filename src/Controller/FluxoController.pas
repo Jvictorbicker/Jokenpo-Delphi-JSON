@@ -16,17 +16,26 @@ uses
 procedure Start;
 var
   jogador: TJogador;
+  bot: TBOT;
   escolha: TEscolhas;
+  escolhaBot: TEscolhas;
 
 begin
-  jogador := TJogador.Create;
+  Randomize;
 
-  escolha:= jogador.Escolha;
+  jogador := TJogador.Create;
+  bot:= TBOT.Create;
 
   repeat
       escolha:= jogador.Escolha;
+      if escolha <> Sair then
+        begin
+          escolhaBot := bot.Escolha;
+          Win(escolha, escolhabot);
 
-      win;
+          jogador.Free;
+          bot.Free;
+        end;
 
   until escolha = Sair;
 

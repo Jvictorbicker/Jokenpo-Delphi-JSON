@@ -2,12 +2,13 @@ unit Jogadas;
 
 interface
 
-procedure win;
+uses Escolhas;
+
+procedure Win(jogadaJogador: TEscolhas; jogadaBot: TEscolhas);
 
 implementation
 
 uses
-  Escolhas,
   Jogador,
   Bot;
 
@@ -18,27 +19,20 @@ uses
   jogadaJogador: TEscolhas;
   jogadaBOT: TEscolhas;
 
-  procedure  win;
+  procedure  win(jogadaJogador: TEscolhas; jogadaBot: TEscolhas);
 
-  begin
-    if (JogadaJogador = Pedra) and (JogadaBOT = Tesoura) then
-        begin
-          Writeln('Jogador venceu');
-        end
-    else if (JogadaJogador = Papel) and (JogadaBOT = Pedra) then
-        begin
-          Writeln('Jogador venceu');
-        end
-    else if (JogadaJogador = Tesoura) and (JogadaBOT = Papel) then
-        begin
-          Writeln('Jogador venceu');
-        end
-    else
-    begin
-      Writeln('Bot Venceu');
-    end;
+begin
+  if jogadaJogador = jogadaBot then
+    Writeln('Empate!')
+  else if
+    ((jogadaJogador = Pedra)   and (jogadaBot = Tesoura)) or
+    ((jogadaJogador = Papel)   and (jogadaBot = Pedra))   or
+    ((jogadaJogador = Tesoura) and (jogadaBot = Papel))
+  then
+    Writeln('Jogador venceu!')
+  else
+    Writeln('Bot venceu!');
 
-    Readln;
-  end;
-
+  Readln;
+end;
 end.
