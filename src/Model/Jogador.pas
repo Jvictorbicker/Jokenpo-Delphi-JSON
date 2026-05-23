@@ -2,21 +2,23 @@ unit Jogador;
 
 interface
 
+uses
+  Escolhas;
+
 Type
   TJogador = class
-  public function Escolha : Integer;
+  public function Escolha : TEscolhas;
   end;
+
 implementation
 
 uses
   System.SysUtils;
 
-function TJogador.Escolha : Integer;
+function TJogador.Escolha : TEscolhas;
 var
   escolha: Integer;
      begin
-       Repeat
-
          Writeln('--------------------');
          Writeln('[1] Pedra');
          Writeln('[2] Papel');
@@ -27,14 +29,10 @@ var
          Writeln('Digite sua opcao: ');
          ReadLn(escolha);
 
-         if (escolha >= 1) and (escolha <=4) then
-         begin
-           Result:= escolha;
-           Exit;
-         end
-         else
-          Writeln('Opcão invalida!');
-       Until False;
-
+         case escolha of
+         1: Result:= Pedra;
+         2: Result:= Papel;
+         3: Result:= Tesoura;
+         end;
      end;
 end.

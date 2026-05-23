@@ -6,16 +6,14 @@ program Main;
 
 uses
   System.SysUtils,
-  Jogador in 'Jogador.pas',
-  Bot in 'Bot.pas',
-  Jogadas in 'Jogadas.pas',
-  FluxoController in 'FluxoController.pas';
+  FluxoController in 'src\Controller\FluxoController.pas',
+  Bot in 'src\Model\Bot.pas',
+  Jogador in 'src\Model\Jogador.pas',
+  Jogadas in 'src\Service\Jogadas.pas',
+  Escolhas in 'src\Model\Escolhas.pas';
 
 begin
-  try
-    { TODO -oUser -cConsole Main : Insert code here }
-  except
-    on E: Exception do
-      Writeln(E.ClassName, ': ', E.Message);
-  end;
+  Start;
+
+  Readln;
 end.

@@ -90,10 +90,12 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="Jogador.pas"/>
-        <DCCReference Include="Bot.pas"/>
-        <DCCReference Include="Jogadas.pas"/>
-        <DCCReference Include="FluxoController.pas"/>
+        <DCCReference Include="src\Controller\FluxoController.pas"/>
+        <DCCReference Include="src\Model\Bot.pas"/>
+        <DCCReference Include="src\Model\Jogador.pas"/>
+        <DCCReference Include="src\Service\Jogadas.pas"/>
+        <DCCReference Include="src\Model\Escolhas.pas"/>
+        <None Include="Main.dpr"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -128,6 +130,12 @@
                 </DeployFile>
                 <DeployFile LocalName="$(BDS)\Redist\osx32\libcgunwind.1.0.dylib" Class="DependencyModule">
                     <Platform Name="OSX32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Main.dpr" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

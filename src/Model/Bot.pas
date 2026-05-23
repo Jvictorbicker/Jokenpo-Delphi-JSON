@@ -2,9 +2,11 @@ unit Bot;
 
 interface
 
+uses Escolhas;
+
   Type
     TBot = class
-      public function Escolha: Integer;
+      public function Escolha: TEscolhas;
     end;
 
 implementation
@@ -12,15 +14,10 @@ implementation
 uses
   System.SysUtils;
 
-function TBOT.Escolha: Integer;
-var
-  escolha: Integer;
+function TBOT.Escolha: TEscolhas;
+
   begin
-    Randomize;
-
-    escolha:= random(3) + 1;
-
-    Result:= escolha;
+    Result:= TEscolhas(random(3));
   end;
 
 end.
