@@ -28,29 +28,51 @@ implementation
       EscolhaPlayer: string;
       Vencedor: string
     );
-    var
-      Json: TJSONArray;
-      Lista: TStringList;
-    begin
-      Json:= TJSONArray.Create;
 
-      try
-        Json.AddPair('rodada: ': TJsonService.VerRodada);
-        Json.AddPair('Escolha do Jogador: ': EscolhaPlayer);
-        Json.AddPair('Escolha do Bot: ': EscolhaBOT);
-        Json.AddPair('Vencedor: ': Vencedor);
+      var
+        Lista: TStringList;
+        Json: TJSONArray;
+        JsonRodada: TJSONObject;
+        Caminho: string;
+        NumeroRodada: Integer;
 
-        Lista := TStringList.Create;
+        begin
+          caminho :='C:\Users\Victor\Desktop\JsonDelphi\src\Data\Partida.json';
 
-        try
-          Lista.Text:= Json.ToJSON;
-          Lista.SaveToFile('C:\Users\Victor\Desktop\JsonDelphi\src\Data\Partida.json')
-        finally
-           Lista.Free;
+          Lista.TStringList.Create;
+
+          try
+            if FileExists(caminho) then
+              begin
+                Lista.LoadFromFile(caminho);
+
+                Json:= TJSONObject.ParseJSONValue(Lista.Text) as JSONArray;
+              end
+            else
+              begin
+                Json:= TJSONArray.Create;
+              end;
+
+              NumeroRodada := JsonArray.Count + 1;
+
+              JsonRodada:= TJSONObject.Create;
+
+              JsonRodada.AddPair('Rodada', TJSONNumber.Create(NumeroRodada));
+              JsonRodada.AddPair('Escolha do jogador', EscolhaPlayer);
+              JsonRodada.AddPair('Escolha do bot', EscolhaBOT);
+              JsonRodada.AddPair('Vencedor', Vencedor);
+
+              JsonArray.AddElement(JsonRodada);
+
+              Lista.Text := JsonArray.ToJSON;
+
+              Lista.SaveToFile(caminho);
+
+              JsonArray.Free;
+
+              finally
+                Lista.Free;
         end;
-      finally
-        Json.Free;
-      end;
     end;
 
     class function TJsonService.CarregarJSON(Rodada: integer) : string;
