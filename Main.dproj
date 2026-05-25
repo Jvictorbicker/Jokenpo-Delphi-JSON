@@ -95,6 +95,7 @@
         <DCCReference Include="src\Model\Jogador.pas"/>
         <DCCReference Include="src\Service\Jogadas.pas"/>
         <DCCReference Include="src\Model\Escolhas.pas"/>
+        <DCCReference Include="src\Service\JsonService.pas"/>
         <None Include="Main.dpr"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
