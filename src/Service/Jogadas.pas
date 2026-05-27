@@ -4,7 +4,7 @@ interface
 
 uses Escolhas;
 
-procedure Win(jogadaJogador: TEscolhas; jogadaBot: TEscolhas);
+procedure Win(jogadaJogador: TEscolha; jogadaBot: TEscolha);
 
 implementation
 
@@ -16,12 +16,12 @@ uses
   jogadorObj: TJogador;
   botObj: TBOT;
 
-  jogadaJogador: TEscolhas;
-  jogadaBOT: TEscolhas;
+  jogadaJogador: TEscolha;
+  jogadaBOT: TEscolha;
 
   vencedor: string;
 
-  procedure  win(jogadaJogador: TEscolhas; jogadaBot: TEscolhas);
+  procedure  win(jogadaJogador: TEscolha; jogadaBot: TEscolha);
 
 begin
   if jogadaJogador = jogadaBot then

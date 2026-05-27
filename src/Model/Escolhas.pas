@@ -2,9 +2,16 @@ unit Escolhas;
 
 interface
 
-Type
-  TEscolhas = (Pedra, Papel, Tesoura, Sair);
+type
+  TEscolha = (Pedra, Papel, Tesoura, Sair);
+
+  TEscolhas = class
+  public
+    Rodada: Integer;
+    EscolhaPlayer: string;
+    EscolhaBOT: string;
+    Vencedor: string;
+  end;
 
 implementation
-
 end.

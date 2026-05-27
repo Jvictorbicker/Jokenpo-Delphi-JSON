@@ -6,7 +6,7 @@ uses Escolhas;
 
   Type
     TBot = class
-      public function Escolha: TEscolhas;
+      public function Escolha: TEscolha;
     end;
 
 implementation
@@ -14,10 +14,10 @@ implementation
 uses
   System.SysUtils;
 
-function TBOT.Escolha: TEscolhas;
+function TBOT.Escolha: TEscolha;
 
   begin
-    Result:= TEscolhas(random(3));
+    Result:= TEscolha(random(3));
   end;
 
 end.

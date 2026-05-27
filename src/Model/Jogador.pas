@@ -7,7 +7,7 @@ uses
 
 Type
   TJogador = class
-  public function Escolha : TEscolhas;
+  public function Escolha : TEscolha;
   end;
 
 implementation
@@ -15,7 +15,7 @@ implementation
 uses
   System.SysUtils;
 
-function TJogador.Escolha : TEscolhas;
+function TJogador.Escolha : TEscolha;
 var
   escolha: Integer;
      begin

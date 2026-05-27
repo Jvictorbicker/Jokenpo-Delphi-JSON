@@ -17,8 +17,8 @@ procedure Start;
 var
   jogador: TJogador;
   bot: TBOT;
-  escolha: TEscolhas;
-  escolhaBot: TEscolhas;
+  escolha: TEscolha;
+  escolhaBot: TEscolha;
 
 begin
   Randomize;
